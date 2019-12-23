@@ -55,4 +55,12 @@ public class GitHubUiTest {
         WebElement errorMessage = driver.findElement(By.cssSelector(".flash-full.flash-error"));
         assertTrue(errorMessage.isDisplayed(), "Error message not displayed!");
     }
+
+    public void login(String userName, String password) {
+
+    }
+
+    public void goToOwnerPage() {
+
+    }
 }

@@ -1,44 +1,17 @@
 package com.automation.petclinic;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.*;
 
 /**
  * Created by alpa on 12/22/19
  */
-public class OwnerTests {
-
-    private WebDriver driver;
-
-    @BeforeClass
-    public void setUpDriver() {
-        WebDriverManager.chromedriver().setup();
-    }
-
-    @BeforeMethod
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
-
+public class OwnerTests extends TestBase {
 
     @Test
     public void addOwnerTest() {
@@ -81,6 +54,11 @@ public class OwnerTests {
 
         String telephone = getInfoValue("Telephone");
         assertEquals(telephone, owner.getTelephone());
+    }
+
+    @Test
+    public void checkOwnersPage() {
+        goToOwnersPage();
     }
 
     public Owner createOwner(WebElement userRow) {

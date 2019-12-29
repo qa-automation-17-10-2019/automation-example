@@ -1,22 +1,33 @@
 package com.automation.petclinic;
 
+import java.util.Objects;
+
 /**
  * Created by alpa on 12/22/19
  */
 public class Owner {
 
-    private String name;
+    private String firstName;
+    private String lastName;
     private String address;
     private String city;
     private String telephone;
     private String pets;
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getAddress() {
@@ -51,14 +62,34 @@ public class Owner {
         this.pets = pets;
     }
 
+
     @Override
     public String toString() {
         return "Owner{" +
-                "name='" + name + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", pets='" + pets + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Owner)) return false;
+        Owner owner = (Owner) o;
+        return Objects.equals(getFirstName(), owner.getFirstName()) &&
+                Objects.equals(getLastName(), owner.getLastName()) &&
+                Objects.equals(getAddress(), owner.getAddress()) &&
+                Objects.equals(getCity(), owner.getCity()) &&
+                Objects.equals(getTelephone(), owner.getTelephone()) &&
+                Objects.equals(getPets(), owner.getPets());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName(), getAddress(), getCity(), getTelephone(), getPets());
     }
 }

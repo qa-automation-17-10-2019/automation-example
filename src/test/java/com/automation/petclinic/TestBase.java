@@ -1,5 +1,6 @@
 package com.automation.petclinic;
 
+import com.automation.petclinic.page.object.OwnersPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,8 +39,13 @@ public class TestBase {
     }
 
 
-    protected void goToOwnersPage() {
+    protected OwnersPage goToOwnersPage() {
         goToUrl(BASE_URL + "/owners", "Owners");
+        return new OwnersPage(driver);
+    }
+
+    protected void goToNewOwnerPage() {
+        goToUrl(BASE_URL + "/owners/add", "New Owner");
     }
 
     protected void goToVetsPage() {

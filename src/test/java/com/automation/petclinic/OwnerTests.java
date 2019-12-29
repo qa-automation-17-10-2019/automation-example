@@ -44,7 +44,7 @@ public class OwnerTests extends TestBase {
         assertTrue(ownerInformation.isDisplayed());
 
         String name = getInfoValue("Name");
-        assertEquals(name, owner.getName());
+        assertEquals(name, owner.getLastName());
 
         String address = getInfoValue("Address");
         assertEquals(address, owner.getAddress());
@@ -63,7 +63,7 @@ public class OwnerTests extends TestBase {
 
     public Owner createOwner(WebElement userRow) {
         Owner owner = new Owner();
-        owner.setName(userRow.findElement(By.xpath("./td/a")).getText());
+        owner.setFirstName(userRow.findElement(By.xpath("./td/a")).getText());
         owner.setAddress(userRow.findElement(By.xpath("./td[2]")).getText());
         owner.setCity(userRow.findElement(By.xpath("./td[3]")).getText());
         owner.setTelephone(userRow.findElement(By.xpath("./td[4]")).getText());

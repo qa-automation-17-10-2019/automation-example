@@ -1,5 +1,6 @@
 package com.automation.petclinic;
 
+import com.automation.petclinic.configuration.Configuration;
 import com.automation.petclinic.page.object.OwnersPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -18,9 +19,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class TestBase {
 
-    private static final String BASE_URL = "http://139.59.149.247:8000/petclinic";
+    private static final String BASE_URL = Configuration.getInstance().baseUrl();
 
     public WebDriver driver;
+//    protected PetClinicNavigation navigation;
 
     @BeforeClass
     public void setUpDriver() {
@@ -31,6 +33,7 @@ public class TestBase {
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
+//        navigation = new PetClinicNavigation(driver);
     }
 
     @AfterMethod

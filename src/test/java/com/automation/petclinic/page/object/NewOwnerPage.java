@@ -12,6 +12,8 @@ public class NewOwnerPage {
 
     private WebDriver driver;
 
+    private By lastNameInputField = By.id("lastName");
+
     public NewOwnerPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -25,15 +27,25 @@ public class NewOwnerPage {
     }
 
     public void setFirstName(String firstName) {
-        WebElement name = driver.findElement(By.id("firstName"));
+        WebElement name = firstNameField();
         name.clear();
         name.sendKeys(firstName);
     }
 
+    public void clearFirstName() {
+        WebElement name = firstNameField();
+        name.clear();
+    }
+
     public void setLastName(String lastName) {
-        WebElement lastNameField = driver.findElement(By.id("lastName"));
+        WebElement lastNameField = driver.findElement(lastNameInputField);
         lastNameField.clear();
         lastNameField.sendKeys(lastName);
+    }
+
+    public void clearLastName() {
+        WebElement lastNameField = driver.findElement(lastNameInputField);
+        lastNameField.clear();
     }
 
     public void setAddress(String address) {
@@ -58,6 +70,10 @@ public class NewOwnerPage {
         WebElement addOwnerBtn = driver.findElement(By.xpath("//*[text()='Add Owner']"));
         addOwnerBtn.click();
         return new OwnersPage(driver);
+    }
+
+    private WebElement firstNameField() {
+        return driver.findElement(By.id("firstName"));
     }
 
 }

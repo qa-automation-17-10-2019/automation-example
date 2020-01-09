@@ -1,6 +1,6 @@
 package com.automation.petclinic.page.object;
 
-import com.automation.petclinic.Owner;
+import com.automation.petclinic.model.Owner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

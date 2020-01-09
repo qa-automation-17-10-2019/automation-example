@@ -1,18 +1,16 @@
 package com.automation.petclinic;
 
 import com.automation.petclinic.configuration.Configuration;
+import com.automation.petclinic.configuration.WebDriverFactory;
 import com.automation.petclinic.page.object.OwnersPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by alpa on 12/26/19
@@ -23,16 +21,10 @@ public class TestBase {
 
     public WebDriver driver;
 //    protected PetClinicNavigation navigation;
-
-    @BeforeClass
-    public void setUpDriver() {
-        WebDriverManager.chromedriver().setup();
-    }
-
+//
     @BeforeMethod
     public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
+        driver = WebDriverFactory.getDriver();
 //        navigation = new PetClinicNavigation(driver);
     }
 

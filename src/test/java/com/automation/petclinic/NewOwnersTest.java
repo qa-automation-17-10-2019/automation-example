@@ -1,5 +1,6 @@
 package com.automation.petclinic;
 
+import com.automation.petclinic.model.Owner;
 import com.automation.petclinic.page.object.NewOwnerPage;
 import com.automation.petclinic.page.object.OwnersPage;
 import org.testng.annotations.Test;

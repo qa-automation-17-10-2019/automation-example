@@ -1,6 +1,6 @@
 package com.automation.petclinic.page.object;
 
-import com.automation.petclinic.Owner;
+import com.automation.petclinic.model.Owner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -74,6 +74,12 @@ public class OwnersPage extends BasePage {
         }
 
         return owner;
+    }
+
+    public OwnerInformationPage openOwnerInfo(String fullName) {
+        WebElement owner = driver.findElement(By.xpath("//a[text()='"+fullName+"']"));
+        owner.click();
+        return new OwnerInformationPage(driver);
     }
 
 

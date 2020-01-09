@@ -10,6 +10,8 @@ public class Configuration {
     private String host = System.getProperty("host", "139.59.149.247");
     private String port = System.getProperty("port", "8000");
     private String baseUrl;
+    private String browser = System.getProperty("browser", "chrome");
+
 
     private Configuration() {
         init();
@@ -34,4 +36,7 @@ public class Configuration {
                 .withPort(Integer.parseInt(port)).build();
     }
 
+    public String getBrowser() {
+        return browser;
+    }
 }

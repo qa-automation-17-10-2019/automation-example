@@ -1,4 +1,4 @@
-package com.automation.petclinic;
+package com.automation.petclinic.model;
 
 import java.util.Objects;
 

@@ -1,13 +1,17 @@
 package com.automation.petclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by alpa on 1/9/20
  */
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Pet {
 
+    private int id;
     private String name;
     private String birthDate;
-    private String Type;
+    private String type;
 
     public Pet() {
     }
@@ -15,9 +19,23 @@ public class Pet {
     public Pet(String name, String birthDate, String type) {
         this.name = name;
         this.birthDate = birthDate;
-        Type = type;
+        this.type = type;
     }
 
+    public Pet(int id, String name, String birthDate, String type) {
+        this.id = id;
+        this.name = name;
+        this.birthDate = birthDate;
+        this.type = type;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -36,19 +54,20 @@ public class Pet {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     @Override
     public String toString() {
         return "Pet{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", birthDate='" + birthDate + '\'' +
-                ", Type='" + Type + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

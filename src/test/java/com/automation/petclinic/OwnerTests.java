@@ -68,7 +68,8 @@ public class OwnerTests extends TestBase {
         owner.setAddress(userRow.findElement(By.xpath("./td[2]")).getText());
         owner.setCity(userRow.findElement(By.xpath("./td[3]")).getText());
         owner.setTelephone(userRow.findElement(By.xpath("./td[4]")).getText());
-        owner.setPets(userRow.findElement(By.xpath("./td[5]")).getText());
+//        owner.setPets(userRow.findElement(By.xpath("./td[5]")).getText());
+        owner.setPets(null);
 
         return owner;
     }

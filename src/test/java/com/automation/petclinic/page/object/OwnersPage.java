@@ -70,7 +70,7 @@ public class OwnersPage extends BasePage {
 
         String pets = userRow.findElement(By.xpath("./td[5]")).getText();
         if(!pets.isEmpty()) {
-            owner.setPets(pets);
+            owner.setPets(null);
         }
 
         return owner;

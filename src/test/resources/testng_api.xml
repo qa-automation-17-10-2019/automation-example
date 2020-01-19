@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="UI test suite" verbose="1" >
+<suite name="API test suite" verbose="1" >
 
     <test name="Add new Owner test" >
         <classes>
-            <class name="com.automation.petclinic.NewOwnersTest"/>
+            <class name="com.automation.petclinic.api.OwnerApiTest"/>
         </classes>
     </test>
 

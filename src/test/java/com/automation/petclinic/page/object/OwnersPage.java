@@ -1,6 +1,7 @@
 package com.automation.petclinic.page.object;
 
 import com.automation.petclinic.model.Owner;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +9,8 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 /**
  * Created by alpa on 12/29/19
@@ -20,6 +21,7 @@ public class OwnersPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open '/owners' url")
     public OwnersPage openPage() {
         goToUrl("/owners", "Owners");
         return this;
@@ -48,6 +50,7 @@ public class OwnersPage extends BasePage {
         return owners;
     }
 
+    @Step("Open Add Owner form")
     public NewOwnerPage clickAddOwnerBtn() {
         WebElement addOwnerBtn = driver.findElement(By.xpath("//*[text()='Add Owner']"));
         addOwnerBtn.click();
@@ -80,6 +83,12 @@ public class OwnersPage extends BasePage {
         WebElement owner = driver.findElement(By.xpath("//a[text()='"+fullName+"']"));
         owner.click();
         return new OwnerInformationPage(driver);
+    }
+
+    @Step("Owner should be added to Owners table")
+    public void ownerShouldExistInOwnerTable(Owner owner) {
+        List<Owner> ownersNames = getOwnersList();
+        assertThat(ownersNames).contains(owner);
     }
 
 

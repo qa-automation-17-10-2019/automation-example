@@ -10,6 +10,7 @@
 
     <properties>
         <aspectj.version>1.9.4</aspectj.version>
+        <suite>testng</suite>
     </properties>
 
 
@@ -86,7 +87,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.build.testOutputDirectory}/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${project.build.testOutputDirectory}/${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.basedir}/target/allure-results</allure.results.directory>

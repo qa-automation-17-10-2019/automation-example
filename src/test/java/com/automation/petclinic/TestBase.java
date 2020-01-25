@@ -2,9 +2,11 @@ package com.automation.petclinic;
 
 import com.automation.petclinic.configuration.Configuration;
 import com.automation.petclinic.configuration.WebDriverFactory;
+import com.automation.petclinic.configuration.WebDriverHolder;
 import com.automation.petclinic.page.object.OwnersPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,13 +26,17 @@ public class TestBase {
 //
     @BeforeMethod
     public void setUp() {
-        driver = WebDriverFactory.getDriver();
+//        driver = WebDriverFactory.getDriver();
+        driver = WebDriverHolder.getInstance();
+//        Cookie authCookie = new Cookie("Authorization", "sdfdsfdsf");
+//        driver.manage().addCookie(authCookie);
 //        navigation = new PetClinicNavigation(driver);
     }
 
     @AfterMethod
     public void tearDown() {
         driver.quit();
+        WebDriverHolder.destroy();
     }
 
 

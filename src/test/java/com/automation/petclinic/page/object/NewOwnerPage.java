@@ -88,4 +88,9 @@ public class NewOwnerPage {
         return driver.findElement(By.id("firstName"));
     }
 
+    @Step
+    public void addOwnerButtonShouldBe(boolean enabled) {
+        WebElement addOwnerBtn = driver.findElement(By.xpath("//*[text()='Add Owner']"));
+        assertThat(addOwnerBtn.isEnabled()).isEqualTo(enabled);
+    }
 }
